@@ -1,0 +1,27 @@
+{
+  "name": "depugger",
+  "version": "0.0.0",
+  "description": "small debugging utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaphod1984/node-depugger.git"
+  },
+  "keywords": [
+    "debugging",
+    "debugger",
+    "debug"
+  ],
+  "author": "Manuel Ernst <zaphod84@gmx.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaphod1984/node-depugger/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1"
+  }
+}
