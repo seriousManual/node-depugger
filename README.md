@@ -7,7 +7,7 @@
 [![NPM](https://nodei.co/npm-dl/depugger.png?months=3)](https://nodei.co/npm/depugger/)
 
 ````javascript
-var debugger = require('depugger');
+var depugger = require('depugger');
 
 var debug = depugger({debug: true, name: 'fooDebugger'});
 
