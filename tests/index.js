@@ -48,4 +48,13 @@ describe('debug', function() {
         expect(mock.log).to.deep.equal(['[fooName] foo', '[fooName] bar']);
     });
 
+    it('should log with util.format interpolation', function() {
+        var mock = createBackend();
+        var a = depugger({debug:true, name: 'fooName', backend: mock});
+
+        a('foo %s bax', 'bar');
+        a('spam %d eggs', 10);
+
+        expect(mock.log).to.deep.equal(['[fooName] foo bar bax', '[fooName] spam 10 eggs']);
+    });
 });
