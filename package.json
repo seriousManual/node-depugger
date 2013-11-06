@@ -1,6 +1,6 @@
 {
   "name": "depugger",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "small debugging utility",
   "main": "index.js",
   "scripts": {
