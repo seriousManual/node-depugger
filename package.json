@@ -22,9 +22,7 @@
   },
   "devDependencies": {
     "mocha": "~1.14.0",
-    "chai": "~1.8.1"
-  },
-  "dependencies": {
+    "chai": "~1.8.1",
     "sandboxed-module": "~0.3.0"
   }
 }
