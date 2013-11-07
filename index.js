@@ -1,15 +1,6 @@
 var util = require('util');
 
-/**
- * stdbackend for the debugger
- * will be overwritten in unit tests
- * @type {Object}
- */
-var stdBackend = {
-    write: function(mssg) {
-        console.log(mssg);
-    }
-};
+var stdBackend = require('./stdBackend');
 
 /**
  * returns a a function that is used to create debug messages
@@ -19,12 +10,18 @@ var stdBackend = {
  * @return {Function}
  */
 
-module.exports = function(options) {
-    options = options || {};
+module.exports = function(pDebug, pName, pOptions) {
+    var debug, name, options, backend;
 
-    var debug = !!options.debug;
-    var name = options.name || '';
-    var backend = options.backend || stdBackend;
+    if(typeof pDebug === 'object') {
+        debug = !!pDebug.debug;
+        name = pDebug.name || '';
+        backend = pDebug.backend || stdBackend;
+    } else {
+        debug = !!pDebug;
+        name = pName || '';
+        backend = stdBackend;
+    }
 
     return function() {
         if(!debug) {
