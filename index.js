@@ -23,6 +23,8 @@ module.exports = function(pDebug, pName, pOptions) {
         backend = stdBackend;
     }
 
+    var prefix = name ? util.format('[%s] ', name) : '';
+
     return function() {
         if(!debug) {
             return;
@@ -31,9 +33,7 @@ module.exports = function(pDebug, pName, pOptions) {
         var args = [].splice.call(arguments, 0);
         var message = util.format.apply(null, args);
 
-        if(name) {
-            message = util.format('[%s] %s', name, message);
-        }
+        message = prefix + message;
 
         backend.write(message);
     }
