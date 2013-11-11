@@ -5,8 +5,9 @@ var stdBackend = require('./stdBackend');
 /**
  * returns a a function that is used to create debug messages
  * the logging of the messages happens in the context of the initializing factory method
- *
- * @param options
+ * @param pDebug flag that indicates if debugging should be activated
+ * @param pName context name for debugging messages
+ * @param pOptions options hash
  * @return {Function}
  */
 
