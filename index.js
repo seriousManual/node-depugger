@@ -31,7 +31,7 @@ module.exports = function(pDebug, pName, pOptions) {
             return;
         }
 
-        var args = [].splice.call(arguments, 0);
+        var args = Array.prototype.splice.call(arguments, 0);
         var message = util.format.apply(null, args);
 
         message = prefix + message;
