@@ -2,6 +2,8 @@ var util = require('util');
 
 var stdBackend = require('./stdBackend');
 
+var noop = function() {};
+
 /**
  * returns a a function that is used to create debug messages
  * the logging of the messages happens in the context of the initializing factory method
@@ -14,7 +16,7 @@ var stdBackend = require('./stdBackend');
 module.exports = function(pDebug, pName, pOptions) {
     var debug, name, options, backend;
 
-    if(typeof pDebug === 'object') {
+    if (typeof pDebug === 'object') {
         debug = !!pDebug.debug;
         name = pDebug.name || '';
         backend = pDebug.backend || stdBackend;
@@ -26,8 +28,12 @@ module.exports = function(pDebug, pName, pOptions) {
 
     var prefix = name ? util.format('[%s] ', name) : '';
 
+    if (!debug) {
+        return noop;
+    }
+
     return function() {
-        if(!debug) {
+        if (!debug) {
             return;
         }
 
