@@ -48,6 +48,18 @@ describe('debug', function() {
         expect(mock.log).to.deep.equal(['[fooName] foo', '[fooName] bar']);
     });
 
+    it('should prefix with child chain', function() {
+        var mock = createBackend();
+        var a = depugger({debug:true, name: 'fooName', backend: mock});
+
+        var child1 = a.child('child1');
+        var child2 = child1.child('child2');
+
+        child2('foo');
+
+        expect(mock.log).to.deep.equal(['[fooName.child1.child2] foo']);
+    });
+
     it('should log with util.format interpolation', function() {
         var mock = createBackend();
         var a = depugger({debug:true, name: 'fooName', backend: mock});
