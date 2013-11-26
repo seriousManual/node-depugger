@@ -41,7 +41,7 @@ function depugger(pDebug, pName) {
     }
 
     logFunction.child = function(childName) {
-        var newName = name + '.' + childName;
+        var newName = name ? name + '.' + childName : childName;
         return depugger({debug: debug, name: newName, backend: backend});
     };
 
