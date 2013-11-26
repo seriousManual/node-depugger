@@ -47,3 +47,19 @@ debug('spam %d eggs', 10);
 //[fooDebugger] spam 10 eggs
 
 ````
+
+### depugger.child(childName)
+Creates a child instance. The name of the parent's debugger will be concatenated with the childDebugger's name:
+````javascript
+var depugger = require('depugger');
+
+var debug = depugger({debug: true, name: 'fooDebugger'});
+
+var childDebug = debug.child('child');
+
+childDebug('foo');
+
+//output to console:
+//[fooDebugger.child] foo
+
+````
