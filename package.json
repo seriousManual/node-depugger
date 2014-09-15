@@ -21,8 +21,8 @@
     "url": "https://github.com/zaphod1984/node-depugger/issues"
   },
   "devDependencies": {
-    "mocha": "~1.14.0",
-    "chai": "~1.8.1",
-    "sandboxed-module": "~0.3.0"
+    "sandboxed-module": "^1.0.1",
+    "mocha": "^1.21.4",
+    "chai": "^1.9.1"
   }
 }
